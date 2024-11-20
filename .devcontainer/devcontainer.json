@@ -1,0 +1,26 @@
+{
+    "name": "Java Development with Docker-in-Docker (OpenJDK 17)",
+    "image": "docker:20.10.23-dind",
+    "settings": {
+      "java.home": "/usr/lib/jvm/java-17-openjdk"
+    },
+    "extensions": [
+      "vscjava.vscode-java-pack",  // Java Extension Pack
+      "ms-azuretools.vscode-docker"  // Docker Extension for VS Code
+    ],
+    "runArgs": [
+      "--privileged", 
+      "-v", "/var/run/docker.sock:/var/run/docker.sock",
+      "-v", "/usr/bin/docker:/usr/bin/docker"
+    ],
+    "mounts": [
+      "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind"
+    ],
+    "postCreateCommand": [
+      "apt-get update",
+      "apt-get install -y openjdk-17-jdk",  // Install OpenJDK 17
+      "docker info"
+    ],
+    "workspaceFolder": "/workspace"
+  }
+  
