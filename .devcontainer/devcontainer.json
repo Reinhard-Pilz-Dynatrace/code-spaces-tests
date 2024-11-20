@@ -8,11 +8,6 @@
       "vscjava.vscode-java-pack",  // Java Extension Pack
       "ms-azuretools.vscode-docker"  // Docker Extension for VS Code
     ],
-    "runArgs": [
-      "--privileged", 
-      "-v", "/var/run/docker.sock:/var/run/docker.sock",
-      "-v", "/usr/bin/docker:/usr/bin/docker"
-    ],
     "mounts": [
       "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind"
     ],
@@ -21,6 +16,6 @@
       "apt-get install -y openjdk-17-jdk",  // Install OpenJDK 17
       "docker info"
     ],
-    "workspaceFolder": "/workspace"
+    "workspaceFolder": "/workspaces/code-spaces-tests"
   }
   
